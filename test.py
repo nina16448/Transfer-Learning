@@ -27,12 +27,11 @@ base_path = os.path.dirname(os.path.abspath(__file__))
 test_data_path = os.path.join(base_path, "plant-seedlings-classification", "test")
 weight_path = os.path.join(base_path, "weights", "weight.pth")
 
-# load model and use weights we saved before
+
 model = MyResNet50()
 model.load_state_dict(torch.load(weight_path))
 model = model.to(device)
 
-# make dataloader for test data
 test_loader = make_test_dataloader(test_data_path)
 
 predictions = predict_test_data(model, test_loader)
