@@ -1,7 +1,7 @@
 import torch
 import pandas as pd
-from models.model import MyResNet50
-from datasets.dataloader import make_test_dataloader
+from model import MyResNet50
+from dataloader import make_test_dataloader
 
 import os
 from tqdm import tqdm
