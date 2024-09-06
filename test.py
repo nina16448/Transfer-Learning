@@ -29,7 +29,14 @@ weight_path = os.path.join(base_path, "weights", "weight.pth")
 
 
 model = MyResNet50()
-model.load_state_dict(torch.load(weight_path))
+try:
+    model.load_state_dict(torch.load(weight_path))
+except FileNotFoundError:
+    print(f"Weight file not found at {weight_path}")
+    exit(1)
+except Exception as e:
+    print(f"Error loading model weights: {str(e)}")
+    exit(1)
 model = model.to(device)
 
 test_loader = make_test_dataloader(test_data_path)

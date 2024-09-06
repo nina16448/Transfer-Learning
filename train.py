@@ -18,7 +18,7 @@ import numpy as np
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
-epochs = 3
+epochs = 100
 learning_rate = 0.01
 
 base_path = os.path.dirname(os.path.abspath(__file__))
